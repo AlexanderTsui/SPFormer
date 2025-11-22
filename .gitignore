@@ -15,4 +15,5 @@ data/scannetv2/val_gt
 data/scannetv2/test
 
 exps
-results
+resultsspformer/lib/sparsehash_tmp/
+spformer/lib/Model_Code/

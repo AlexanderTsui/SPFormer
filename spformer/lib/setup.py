@@ -15,10 +15,13 @@ def get_sources(module, surfix='*.c*'):
 
 def get_include_dir(module):
     include_dir = osp.join(*module.split('.'), 'include')
+    sparsehash_dir = osp.join('sparsehash_tmp', 'src')
+    includes = []
     if osp.exists(include_dir):
-        return [osp.abspath(include_dir)]
-    else:
-        return []
+        includes.append(osp.abspath(include_dir))
+    if osp.exists(sparsehash_dir):
+        includes.append(osp.abspath(sparsehash_dir))
+    return includes
 
 
 def make_extension(name, module):
