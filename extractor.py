@@ -79,7 +79,7 @@ class FeatureExtractor:
         rgb = rgb / 127.5 - 1.0
         return xyz, rgb
 
-    def generate_superpoints(self, xyz, rgb, n_clusters=100):
+    def generate_superpoints(self, xyz, rgb, n_clusters=512):
         """
         使用KNN和层次聚类生成几何连续的超点，模拟segmentator的行为
         """
@@ -262,7 +262,7 @@ def get_args():
     parser.add_argument('--checkpoint', type=str, required=True, help='权重文件路径')
     parser.add_argument('--input_file', type=str, required=True, help='输入点云文件路径 (txt)')
     parser.add_argument('--output_file', type=str, default='extracted_features.pth', help='输出特征文件路径 (.pth)')
-    parser.add_argument('--n_superpoints', type=int, default=100, help='生成的超点数量')
+    parser.add_argument('--n_superpoints', type=int, default=512, help='生成的超点数量')
     return parser.parse_args()
 
 if __name__ == '__main__':
